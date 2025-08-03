@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>KJC LP Auto Stake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/wallet.js"></script>
+  <script src="js/staking.js"></script>
+  <script src="js/referral.js"></script>
+  <script src="js/app.js"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: gold;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 6px;
+      font-size: 16px;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+    a {
+      color: gold;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💎 KJC LP Auto Stake</h1>
+
+    <button onclick="connectWallet()">🔗 เชื่อมต่อกระเป๋า</button>
+    <p id="walletAddress">❌ ยังไม่เชื่อมต่อ</p>
+
+    <hr>
+
+    <h3>📨 ลิงก์แนะนำของคุณ</h3>
+    <a id="refLink" href="#">-</a>
+
+    <h3>✉️ กรอก Referrer Address</h3>
+    <input type="text" id="refAddress" placeholder="0x..." />
+    <button onclick="registerReferrer()">📌 สมัคร Referrer</button>
+
+    <hr>
+
+    <h3>💸 ใส่จำนวน USDT ที่ต้องการ Stake</h3>
+    <input type="number" id="stakeAmount" placeholder="เช่น 50" />
+    <button onclick="stakeLP(document.getElementById('stakeAmount').value)">🚀 Stake LP</button>
+
+    <hr>
+
+    <h3>📊 ข้อมูล Staking ของคุณ</h3>
+    <p>🔐 ยอด LP ที่ Stake: <span id="stakedLP">-</span></p>
+    <p>🎁 รางวัลที่รอเคลม: <span id="pendingReward">-</span></p>
+    <button onclick="claimReward()">💰 เคลมรางวัล</button>
+    <button onclick="withdrawLP()">📤 ถอน LP (เมื่อครบเวลา)</button>
+    <p>🔎 ดูบน BscScan: <a id="bscscanLink" href="#" target="_blank">คลิกที่นี่</a></p>
+
+    <hr>
+
+    <h3>👥 รางวัลจากแนะนำเพื่อน</h3>
+    <p>🎉 รางวัลแนะนำ: <span id="refReward">-</span> KJC</p>
+    <button onclick="claimReferral()">💸 เคลมรางวัลแนะนำ</button>
+  </div>
+</body>
+</html>
