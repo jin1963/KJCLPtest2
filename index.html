@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>💎 KJC LP Auto Stake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: gold;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+    a {
+      color: #00f0ff;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💎 KJC LP Auto Stake</h1>
+    <button onclick="connectWallet()">🔗 เชื่อมต่อกระเป๋า</button>
+    <p id="walletAddress">❌ ยังไม่เชื่อมต่อกระเป๋า</p>
+
+    <hr>
+    <p>📮 ลิงก์แนะนำของคุณ:</p>
+    <a id="refLink" target="_blank">-</a>
+
+    <p>✉️ กรอก Referrer Address</p>
+    <input type="text" id="refAddress" placeholder="0x...">
+    <br>
+    <button onclick="registerReferrer()">📌 สมัคร Referrer</button>
+
+    <hr>
+    <p>🐝 ใส่จำนวน <strong>USDT</strong> ที่ต้องการ Stake</p>
+    <input type="number" id="usdtAmount" placeholder="เช่น 50">
+    <br>
+    <button onclick="stakeLP()">🚀 Stake LP</button>
+
+    <hr>
+    <p>📃 ข้อมูล Staking ของคุณ</p>
+    <button onclick="claimStakingReward()">💰 เคลมรางวัล Staking</button>
+    <br>
+    <button onclick="claimReferralReward()">🎉 เคลมรางวัลแนะนำ</button>
+
+    <p>🔎 <a id="bscScanLink" target="_blank">ดูที่ BscScan</a></p>
+  </div>
+</body>
+</html>
