@@ -41,3 +41,4 @@ const stakingABI = [
     ], stateMutability: "view"
   }
 ];
+const contractABI = stakingABI;
